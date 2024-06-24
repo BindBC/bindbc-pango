@@ -9,7 +9,13 @@ module pango.renderer;
 import bindbc.pango.config;
 import bindbc.pango.codegen;
 
+import pango.attributes;
+import pango.colour;
+import pango.glyph_item;
+import pango.glyph;
 import pango.layout;
+import pango.matrix;
+import pango.types;
 
 struct PangoRendererPrivate;
 

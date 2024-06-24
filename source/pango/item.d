@@ -10,6 +10,7 @@ import bindbc.pango.config;
 import bindbc.pango.codegen;
 
 import pango.attributes;
+import pango.direction;
 import pango.types;
 
 static if(pangoVersion >= Version(1,16,0))

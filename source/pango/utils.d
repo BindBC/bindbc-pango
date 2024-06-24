@@ -9,6 +9,7 @@ module pango.utils;
 import bindbc.pango.config;
 import bindbc.pango.codegen;
 
+import pango.direction;
 import pango.font;
 
 pragma(inline,true) nothrow @nogc pure @safe{

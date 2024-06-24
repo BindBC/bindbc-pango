@@ -214,7 +214,7 @@ mixin(joinFnBinds((){
 	}
 	if(pangoVersion >= Version(1,30,0)){
 		FnBind[] add = [
-			{q{gint}, q{pango_layout_get_character_count}, q{PangoLayout* layout}},
+			{q{int}, q{pango_layout_get_character_count}, q{PangoLayout* layout}},
 			{q{const(PangoLogAttr)*}, q{pango_layout_get_log_attrs_readonly}, q{PangoLayout* layout, int* nAttrs}},
 		];
 		ret ~= add;

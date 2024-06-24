@@ -14,6 +14,8 @@ import pango.direction;
 import pango.font;
 import pango.fontmap;
 import pango.fontset;
+import pango.gravity;
+import pango.matrix;
 import pango.types;
 
 struct PangoContextClass;
@@ -38,7 +40,7 @@ mixin(joinFnBinds((){
 		FnBind[] add = [
 			{q{PangoFontMap*}, q{pango_context_get_font_map}, q{PangoContext* context}},
 			{q{void}, q{pango_context_set_matrix}, q{PangoContext* context, const(PangoMatrix)* matrix}},
-			{q{const(PangoMatrix)*}, q{ pango_context_get_matrix}, q{PangoContext* context}},
+			{q{const(PangoMatrix)*}, q{pango_context_get_matrix}, q{PangoContext* context}},
 		];
 		ret ~= add;
 	}

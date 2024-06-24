@@ -13,7 +13,7 @@ import pango.attributes;
 
 mixin(joinFnBinds((){
 	FnBind[] ret = [
-			{q{gboolean}, q{pango_parse_markup}, q{const(char)* markupText, int length, dchar accelMarker, PangoAttrList** attrList, char** text, dchar* accelChar, GError** error}},
+		{q{gboolean}, q{pango_parse_markup}, q{const(char)* markupText, int length, dchar accelMarker, PangoAttrList** attrList, char** text, dchar* accelChar, GError** error}},
 	];
 	if(pangoVersion >= Version(1,32,0)){
 		FnBind[] add = [

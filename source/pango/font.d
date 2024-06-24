@@ -10,6 +10,8 @@ import bindbc.pango.config;
 import bindbc.pango.codegen;
 
 import pango.coverage;
+import pango.fontmap;
+import pango.gravity;
 import pango.types;
 
 struct PangoFontDescription;
@@ -29,7 +31,7 @@ mixin(makeEnumBind(q{PangoVariant}, members: (){
 		{{q{normal},     q{PANGO_VARIANT_NORMAL}}},
 		{{q{smallCaps},  q{PANGO_VARIANT_SMALL_CAPS}}},
 	];
-	static if(pangoVersion >= Version(1,50,0)){
+	if(pangoVersion >= Version(1,50,0)){
 		EnumMember[] add = [
 			{{q{allSmallCaps},   q{PANGO_VARIANT_ALL_SMALL_CAPS}}},
 			{{q{petiteCaps},     q{PANGO_VARIANT_PETITE_CAPS}}},
@@ -52,7 +54,7 @@ mixin(makeEnumBind(q{PangoWeight}, members: (){
 		{{q{ultraBold},   q{PANGO_WEIGHT_ULTRABOLD}},       q{800}},
 		{{q{heavy},       q{PANGO_WEIGHT_HEAVY}},           q{900}},
 	];
-	static if(pangoVersion >= Version(1,24,0)){
+	if(pangoVersion >= Version(1,24,0)){
 		EnumMember[] add = [
 			{{q{thin},        q{PANGO_WEIGHT_THIN}},        q{100}},
 			{{q{book},        q{PANGO_WEIGHT_BOOK}},        q{380}},
@@ -61,7 +63,7 @@ mixin(makeEnumBind(q{PangoWeight}, members: (){
 		];
 		ret ~= add;
 	}
-	static if(pangoVersion >= Version(1,36,7)){
+	if(pangoVersion >= Version(1,36,7)){
 		EnumMember[] add = [
 			{{q{semiLight},   q{PANGO_WEIGHT_SEMILIGHT}},   q{350}},
 		];
@@ -94,13 +96,13 @@ mixin(makeEnumBind(q{PangoFontMask}, members: (){
 		{{q{stretch},     q{PANGO_FONT_MASK_STRETCH}},     q{1 << 4}},
 		{{q{size},        q{PANGO_FONT_MASK_SIZE}},        q{1 << 5}},
 	];
-	static if(pangoVersion >= Version(1,16,0)){
+	if(pangoVersion >= Version(1,16,0)){
 		EnumMember[] add = [
 		{{q{gravity},     q{PANGO_FONT_MASK_GRAVITY}},     q{1 << 6}},
 		];
 		ret ~= add;
 	}
-	static if(pangoVersion >= Version(1,42,0)){
+	if(pangoVersion >= Version(1,42,0)){
 		EnumMember[] add = [
 		{{q{variations},  q{PANGO_FONT_MASK_VARIATIONS}},  q{1 << 7}},
 		];

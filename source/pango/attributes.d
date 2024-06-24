@@ -12,6 +12,7 @@ import bindbc.pango.codegen;
 import pango.attributes;
 import pango.colour;
 import pango.font;
+import pango.gravity;
 import pango.types;
 
 mixin(makeEnumBind(q{PangoAttrType}, aliases: [q{PangoAttr}], members: (){

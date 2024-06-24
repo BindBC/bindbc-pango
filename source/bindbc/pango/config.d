@@ -23,6 +23,7 @@ struct GList{
 	GList* next;
 	GList* prev;
 }
+struct GMarkupParseContext;
 struct GValue;
 struct GParamSpec;
 struct GObjectConstructParam;
@@ -99,21 +100,19 @@ enum dStyleEnums = (){
 }();
 
 enum pangoVersion = (){
-	version(Pango_1_54)         return Version(1,54,0);//not seen yet
+	version(Pango_1_54)         return Version(1,54,0);
 	else version(Pango_1_52_0)  return Version(1,52,0);
 	else version(Pango_1_50_0)  return Version(1,50,0);
-	else version(Pango_1_48_0)  return Version(1,48,0);//not seen yet
+	else version(Pango_1_48_0)  return Version(1,48,0);
 	else version(Pango_1_46_0)  return Version(1,46,0);
 	else version(Pango_1_44_0)  return Version(1,44,0);
 	else version(Pango_1_42_0)  return Version(1,42,0);
 	else version(Pango_1_40_0)  return Version(1,40,0);
 	else version(Pango_1_38_0)  return Version(1,38,0);
 	else version(Pango_1_36_7)  return Version(1,36,7);
-	else version(Pango_1_36_0)  return Version(1,36,0);//not seen yet
 	else version(Pango_1_34_0)  return Version(1,34,0);
 	else version(Pango_1_32_0)  return Version(1,32,0);
 	else version(Pango_1_30_0)  return Version(1,30,0);
-	else version(Pango_1_28_0)  return Version(1,28,0);//not seen yet
 	else version(Pango_1_26_0)  return Version(1,26,0);
 	else version(Pango_1_24_0)  return Version(1,24,0);
 	else version(Pango_1_22_0)  return Version(1,22,0);
