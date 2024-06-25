@@ -78,9 +78,10 @@ struct GError{
 	int code;
 	char* message;
 }
-alias GDestroyNotify = extern(C) void function(void* data);
+alias GDestroyNotify = extern(C) void function(void* data) nothrow;
 //HarfBuzz
 struct hb_feature_t;
+struct hb_face_t;
 struct hb_font_t;
 
 enum staticBinding = (){

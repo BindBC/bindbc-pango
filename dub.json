@@ -34,6 +34,33 @@
 			},
 			"buildOptions": ["betterC"],
 			"versions": ["BindPango_Static"],
-		}
+		},
+	],
+	
+	"subPackages": [
+		{
+			"name": "fontconfig",
+			"sourcePaths": ["fontconfig"],
+			"importPaths": ["fontconfig"],
+			"dependencies": {
+				"bindbc-pango": {"path": "../"},
+				"bindbc-fontconfig": "~>1.0.0",
+			},
+			"targetPath": "lib",
+			"targetName": "BindBC_Pango_Fc",
+		},
+		{
+			"name": "freetype",
+			"sourcePaths": ["freetype"],
+			"importPaths": ["freetype"],
+			"dependencies": {
+				"bindbc-pango": {"path": "./"},
+				"bindbc-pango:fontconfig": {"path": "./"},
+				"bindbc-fontconfig": "~>1.0.0",
+				"bindbc-freetype": "~>1.2.0",
+			},
+			"targetPath": "lib",
+			"targetName": "BindBC_Pango_FT",
+		},
 	],
 }

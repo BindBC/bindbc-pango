@@ -12,9 +12,6 @@ import bindbc.pango.codegen;
 import pango.script;
 import pango.types;
 
-pragma(inline,true) auto pango_language_to_string(PangoLanguage* language) nothrow @nogc pure =>
-	cast(const(char)*)language;
-
 mixin(joinFnBinds((){
 	FnBind[] ret = [
 			{q{GType}, q{pango_language_get_type}, q{}, attr: q{pure}, aliases: [q{PANGO_TYPE_LANGUAGE}]},

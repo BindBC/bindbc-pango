@@ -30,7 +30,7 @@ mixin(joinFnBinds((){
 static if(!staticBinding):
 import bindbc.loader;
 
-mixin(makeDynloadFns("Pango", makeLibPaths(["pango"]), [
+mixin(makeDynloadFns("Pango", makeLibPaths(["pango-1.0"]), [
 	__MODULE__,
 	"pango.attributes",  "pango.break_",          "pango.colour",
 	"pango.context",     "pango.coverage",        "pango.font",
