@@ -54,57 +54,43 @@ if(`~loadFn~`() != LoadMsg.success){
 	PangoFontMap* fontMap = pango_ft2_font_map_new();
 	PangoContext* pangoCtx = pango_font_map_create_context(fontMap);
 	
-	string txtMarkup = "hello";
-	char* txtz;
-	PangoAttrList* attrs;
-	if(!pango_parse_markup(
-		&txtMarkup[0], cast(int)txtMarkup.length,
-		cast(dchar)0, &attrs, &txtz,
-		null, null,
-	))
-		printf("Markup error\n");
-	char[] txt = fromStringz(txtz);
-	
-	//itemisation
-	GList* anaList = pango_itemise(
-		pangoCtx,
-		&txt[0], 0, cast(int)txt.length,
-		attrs, null,
-	);
-	pango_attr_list_unref(attrs);
-	
-	//shaping
-	PangoGlyphString* glyphs = pango_glyph_string_new();
-	auto l = anaList;
-	while(true){
-		auto item = cast(PangoItem*)l.data;
-		pango_shape(&txt[item.offset], item.length, &item.analysis, glyphs);
-		if(!l.next) break;
-		l = l.next;
-	}
-	g_list_free_full(anaList, cast(GDestroyNotify)&pango_item_free);
-	g_free(&txt[0]);
+	string txtMarkup =
+"I can eat glass and it doesn't hurt me.
+ฉันกินกระจกได้ แต่มันไม่ทำให้ฉันเจ็บ
+काचं शक्नोम्यत्तुम् । नोपहिनस्ति माम् ॥
+私はガラスを食べられます。それは私を傷つけません。
+我能吞下玻璃而不傷身體。
+Я можу їсти скло, і воно мені не зашкодить.
+میں کانچ کھا سکتا ہوں اور مجھے تکلیف نہیں ہوتی ۔
+אני יכול לאכול זכוכית וזה לא מזיק לי.
+Samples from: https://kermitproject.org/utf8.html";
 	
 	//load font
 	PangoFontDescription* desc = pango_font_description_new();
 	pango_font_description_set_absolute_size(desc, pangoScale * 24.0);
-	PangoFont* font = pango_font_map_load_font(fontMap, pangoCtx, desc);
-	pango_font_description_free(desc);
+	pango_context_set_font_description(pangoCtx, desc);
+	printf("Font: %s\n", pango_font_description_to_string(desc));
+	//PangoFont* font = pango_font_map_load_font(fontMap, pangoCtx, desc);
 	
-	auto newDesc = pango_font_describe(font);
-	printf("Font: %s\n", pango_font_description_to_string(newDesc));
-	pango_font_description_free(newDesc);
+	//layout
+	PangoLayout* layout = pango_layout_new(pangoCtx);
+	pango_layout_set_markup(layout, &txtMarkup[0], cast(int)txtMarkup.length);
+	
+	int txtWidth, txtHeight;
+	pango_layout_get_size(layout, &txtWidth, &txtHeight);
+	txtWidth /= pangoScale;
+	txtHeight /= pangoScale;
 	
 	FT_Bitmap ftBmp;
 	FT_Bitmap_Init(&ftBmp);
-	ftBmp.pitch = 128;
-	ftBmp.width = 128;
-	ftBmp.rows  = 48;
+	ftBmp.pitch = (txtWidth+16+8) & ~4;
+	ftBmp.width = txtWidth+16;
+	ftBmp.rows  = txtHeight+16;
 	ftBmp.pixelMode = FT_Pixel_Mode.grey;
 	ftBmp.numGreys = 256;
 	ftBmp.buffer = cast(ubyte*)calloc(ftBmp.rows * ftBmp.width, 1);
 	
-	pango_ft2_render(&ftBmp, font, glyphs, 0,24);
+	pango_ft2_render_layout(&ftBmp, layout, 8,8);
 	
 	auto image = Image(ftBmp.width, ftBmp.rows, PixelType.l8);
 	size_t buffOff = 0;
@@ -120,8 +106,7 @@ if(`~loadFn~`() != LoadMsg.success){
 		printf("Writing output.png failed\n");
 	FT_Bitmap_Done(ftLib, &ftBmp);
 	
-	g_object_unref(cast(GObject*)font);
-	pango_glyph_string_free(glyphs);
+	pango_font_description_free(desc);
 	g_object_unref(cast(GObject*)pangoCtx);
 	g_object_unref(cast(GObject*)fontMap);
 	
