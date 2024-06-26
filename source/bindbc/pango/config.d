@@ -91,12 +91,16 @@ enum staticBinding = (){
 }();
 
 enum cStyleEnums = (){
-	version(Pango_D_Enums_Only) return false;
+	version(Pango_C_Enums_Only)       return true;
+	else version(BindBC_D_Enums_Only) return false;
+	else version(Pango_D_Enums_Only)  return false;
 	else return true;
 }();
 
 enum dStyleEnums = (){
-	version(Pango_C_Enums_Only) return false;
+	version(Pango_D_Enums_Only)       return true;
+	else version(BindBC_C_Enums_Only) return false;
+	else version(Pango_C_Enums_Only)  return false;
 	else return true;
 }();
 

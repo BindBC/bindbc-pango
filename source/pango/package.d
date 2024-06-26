@@ -23,6 +23,8 @@ mixin(joinFnBinds((){
 	FnBind[] ret = [
 		{q{GObject*}, q{g_object_ref}, q{GObject* object}},
 		{q{void}, q{g_object_unref}, q{GObject* object}},
+		{q{void}, q{g_list_free_full}, q{GList* list, GDestroyNotify freeFunc}},
+		{q{void}, q{g_free}, q{void* mem}},
 	];
 	return ret;
 }()));

@@ -15,6 +15,6 @@ public import
 static if(!staticBinding):
 import bindbc.loader;
 
-mixin(makeDynloadFns("PangoFontconfig", makeLibPaths(["pangofc-1.0"]), [
+mixin(makeDynloadFns("PangoFontconfig", makeLibPaths(["pangoft2-1.0"]), [
 	"pango.fc.decoder",  "pango.fc.font",  "pango.fc.fontmap",
 ]));

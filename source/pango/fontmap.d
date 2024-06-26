@@ -26,10 +26,10 @@ struct PangoFontMapClass{
 		alias LoadFontFn = PangoFont* function();
 		alias ListFamiliesFn = void function();
 		alias LoadFontsetFn = PangoFontset* function();
-		alias GetSerialFn = uint function(PangoFontMap* fontmap);
-		alias ChangedcFn = void function(PangoFontMap* fontmap);
-		alias GetFamilyFn = PangoFontFamily* function(PangoFontMap* fontmap, const(char)* name);
-		alias GetFaceFn = PangoFontFace* function(PangoFontMap* fontmap, PangoFont* font);
+		alias GetSerialFn = uint function(PangoFontMap* fontMap);
+		alias ChangedcFn = void function(PangoFontMap* fontMap);
+		alias GetFamilyFn = PangoFontFamily* function(PangoFontMap* fontMap, const(char)* name);
+		alias GetFaceFn = PangoFontFace* function(PangoFontMap* fontMap, PangoFont* font);
 	}
 	LoadFontFn loadFont;
 	ListFamiliesFn listFamilies;
@@ -51,37 +51,37 @@ struct PangoFontMapClass{
 mixin(joinFnBinds((){
 	FnBind[] ret = [
 		{q{GType}, q{pango_font_map_get_type}, q{}, attr: q{pure}, aliases: [q{PANGO_TYPE_FONT_MAP}]},
-		{q{PangoFont*}, q{pango_font_map_load_font}, q{PangoFontMap* fontmap, PangoContext* context, const(PangoFontDescription)* desc}},
-		{q{PangoFontset*}, q{pango_font_map_load_fontset}, q{PangoFontMap* fontmap, PangoContext* context, const(PangoFontDescription)* desc, PangoLanguage* language}},
-		{q{void}, q{pango_font_map_list_families}, q{PangoFontMap* fontmap, PangoFontFamily*** families, int* nFamilies}},
+		{q{PangoFont*}, q{pango_font_map_load_font}, q{PangoFontMap* fontMap, PangoContext* context, const(PangoFontDescription)* desc}},
+		{q{PangoFontset*}, q{pango_font_map_load_fontset}, q{PangoFontMap* fontMap, PangoContext* context, const(PangoFontDescription)* desc, PangoLanguage* language}},
+		{q{void}, q{pango_font_map_list_families}, q{PangoFontMap* fontMap, PangoFontFamily*** families, int* nFamilies}},
 	];
 	if(pangoVersion >= Version(1,22,0)){
 		FnBind[] add = [
-			{q{PangoContext*}, q{pango_font_map_create_context}, q{PangoFontMap* fontmap}},
+			{q{PangoContext*}, q{pango_font_map_create_context}, q{PangoFontMap* fontMap}},
 		];
 		ret ~= add;
 	}
 	if(pangoVersion >= Version(1,32,0)){
 		FnBind[] add = [
-			{q{uint}, q{pango_font_map_get_serial}, q{PangoFontMap* fontmap}},
+			{q{uint}, q{pango_font_map_get_serial}, q{PangoFontMap* fontMap}},
 		];
 		ret ~= add;
 	}
 	if(pangoVersion >= Version(1,34,0)){
 		FnBind[] add = [
-			{q{void}, q{pango_font_map_changed}, q{PangoFontMap* fontmap}},
+			{q{void}, q{pango_font_map_changed}, q{PangoFontMap* fontMap}},
 		];
 		ret ~= add;
 	}
 	if(pangoVersion >= Version(1,46,0)){
 		FnBind[] add = [
-			{q{PangoFontFamily*}, q{pango_font_map_get_family}, q{PangoFontMap* fontmap, const(char)* name}},
+			{q{PangoFontFamily*}, q{pango_font_map_get_family}, q{PangoFontMap* fontMap, const(char)* name}},
 		];
 		ret ~= add;
 	}
 	if(pangoVersion >= Version(1,52,0)){
 		FnBind[] add = [
-			{q{PangoFont*}, q{pango_font_map_reload_font}, q{PangoFontMap* fontmap, PangoFont* font, double scale, PangoContext* context, const(char)* variations}},
+			{q{PangoFont*}, q{pango_font_map_reload_font}, q{PangoFontMap* fontMap, PangoFont* font, double scale, PangoContext* context, const(char)* variations}},
 		];
 		ret ~= add;
 	}
