@@ -1,0 +1,42 @@
+{
+	"name": "bindbc-pango-example",
+	"dependencies": {
+		"bindbc-pango": {"path": "../"},
+		"bindbc-pango:fontconfig": {"path": "../"},
+		"bindbc-pango:freetype": {"path": "../"},
+		"bindbc-freetype": "~>1.3.0",
+		"bindbc-fontconfig": "~>1.0.0",
+		"bindbc-fontconfig:freetype": "~>1.0.0",
+		"gamut": "~>2.6.0",
+	},
+	"subConfigurations": {
+		"gamut": "boost",
+	},
+	
+	"targetPath": "bin",
+	"targetType": "executable",
+	"versions": ["Pango_1_40_0", "FT_210"],
+	
+	"configurations": [
+		{
+			"name": "dynamic",
+			"dependencies": {
+				"bindbc-loader": "~>1.1.0",
+			},
+			"subConfigurations": {
+				"bindbc-pango": "dynamic",
+				"bindbc-freetype": "dynamic",
+				"bindbc-fontconfig": "dynamic",
+			},
+		},
+		{
+			"name": "static",
+			"subConfigurations": {
+				"bindbc-pango": "static",
+				"bindbc-freetype": "static",
+				"bindbc-fontconfig": "static",
+			},
+			"libs": ["pango", "fontconfig", "freetype"],
+		},
+	],
+}
