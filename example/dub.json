@@ -36,7 +36,7 @@
 				"bindbc-freetype": "static",
 				"bindbc-fontconfig": "static",
 			},
-			"libs": ["pango", "fontconfig", "freetype"],
+			"libs": ["gobject-2.0", "fontconfig", "freetype", "pango-1.0", "pangoft2-1.0"],
 		},
 	],
 }
