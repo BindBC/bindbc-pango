@@ -8,6 +8,7 @@ module pango.fc.font;
 
 import bindbc.pango.config;
 import bindbc.pango.codegen;
+import bindbc.glib, bindbc.gobject;
 
 import pango.glyph;
 import pango.font;

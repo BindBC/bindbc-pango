@@ -4,7 +4,11 @@
 	"authors": ["Aya Partridge"],
 	"license": "BSL-1.0",
 	
-	"dependencies": {"bindbc-common": "~>1.0.0"},
+	"dependencies": {
+		"bindbc-common": "~>1.0.0",
+		"bindbc-glib": "~>1.0.0",
+		"bindbc-glib:gobject": "~>1.0.0",
+	},
 	"targetType": "staticLibrary",
 	"targetPath": "lib",
 	"targetName": "BindBC_Pango",

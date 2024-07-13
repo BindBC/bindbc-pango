@@ -8,6 +8,7 @@ module pango.gravity;
 
 import bindbc.pango.config;
 import bindbc.pango.codegen;
+import bindbc.glib, bindbc.gobject;
 
 import pango.matrix;
 import pango.script;

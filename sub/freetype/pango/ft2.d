@@ -8,6 +8,7 @@ module pango.ft2;
 
 import bindbc.pango.config;
 import bindbc.pango.codegen;
+import bindbc.glib, bindbc.gobject;
 
 import pango.fc.fontmap;
 import pango.fc.font;

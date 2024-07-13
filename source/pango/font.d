@@ -8,6 +8,7 @@ module pango.font;
 
 import bindbc.pango.config;
 import bindbc.pango.codegen;
+import bindbc.glib, bindbc.gobject;
 
 import pango.coverage;
 import pango.fontmap;
@@ -129,7 +130,8 @@ enum: double{
 }
 
 struct PangoFontMetrics{
-	private uint refCount;
+	uint refCount;
+	alias ref_count = refCount;
 
 	int ascent;
 	int descent;
@@ -162,7 +164,7 @@ alias PANGO_GLYPH_EMPTY = pangoGlyphEmpty;
 alias PANGO_GLYPH_INVALID_INPUT = pangoGlyphInvalidInput;
 
 static if(pangoVersion >= Version(1,20,0)){
-	enum PangoGlyph pangoGlyphUnknownFlag   = 0x1000_0000;
+	enum PangoGlyph pangoGlyphUnknownFlag = 0x1000_0000;
 	alias PANGO_GLYPH_UNKNOWN_FLAG = pangoGlyphUnknownFlag;
 	
 	pragma(inline,true) PangoGlyph pangoGetUnknownGlyph(dchar wc) nothrow @nogc pure @safe =>

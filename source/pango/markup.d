@@ -8,6 +8,7 @@ module pango.markup;
 
 import bindbc.pango.config;
 import bindbc.pango.codegen;
+import bindbc.glib, bindbc.gobject;
 
 import pango.attributes;
 

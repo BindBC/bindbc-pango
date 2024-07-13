@@ -8,6 +8,7 @@ module pango.fontset;
 
 import bindbc.pango.config;
 import bindbc.pango.codegen;
+import bindbc.glib, bindbc.gobject;
 
 import pango.coverage;
 import pango.font;
@@ -34,12 +35,11 @@ struct PangoFontsetClass{
 	GetFontFn getFont;
 	GetMetricsFn getMetrics;
 	GetLanguageFn getLanguage;
-	ForeachFn foreach_;
 	alias get_font = getFont;
 	alias get_metrics = getMetrics;
 	alias get_language = getLanguage;
+	ForeachFn foreach_;
 	
-	private:
 	ReservedFn _pango_reserved1;
 	ReservedFn _pango_reserved2;
 	ReservedFn _pango_reserved3;

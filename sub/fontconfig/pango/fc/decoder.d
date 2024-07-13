@@ -8,6 +8,7 @@ module pango.fc.decoder;
 
 import bindbc.pango.config;
 import bindbc.pango.codegen;
+import bindbc.glib, bindbc.gobject;
 
 import pango.types;
 import pango.fc.font;
@@ -16,11 +17,13 @@ import bindbc.fontconfig;
 
 static if(pangoVersion >= Version(1,6,0)){
 	struct PangoFcDecoder{
-		private GObject parentInstance;
+		GObject parentInstance;
+		alias parent_instance = parentInstance;
 	}
 	
 	struct PangoFcDecoderClass{
-		private GObjectClass parentClass;
+		GObjectClass parentClass;
+		alias parent_class = parentClass;
 		
 		extern(C) nothrow{
 			alias GetCharsetFn = FcCharSet* function(PangoFcDecoder* decoder, PangoFcFont* fcFont);
@@ -32,7 +35,6 @@ static if(pangoVersion >= Version(1,6,0)){
 		alias get_charset = getCharset;
 		alias get_glyph = getGlyph;
 		
-		private:
 		ReservedFn _pango_reserved1;
 		ReservedFn _pango_reserved2;
 		ReservedFn _pango_reserved3;

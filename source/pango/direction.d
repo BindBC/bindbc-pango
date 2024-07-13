@@ -8,6 +8,7 @@ module pango.direction;
 
 import bindbc.pango.config;
 import bindbc.pango.codegen;
+import bindbc.glib, bindbc.gobject;
 
 mixin(makeEnumBind(q{PangoDirection}, members: (){
 	EnumMember[] ret = [

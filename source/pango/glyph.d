@@ -8,6 +8,7 @@ module pango.glyph;
 
 import bindbc.pango.config;
 import bindbc.pango.codegen;
+import bindbc.glib, bindbc.gobject;
 
 import pango.break_;
 import pango.item;
@@ -50,7 +51,7 @@ struct PangoGlyphString{
 	int* logClusters;
 	alias log_clusters = logClusters;
 	
-	private int space;
+	int space;
 }
 
 

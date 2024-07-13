@@ -8,6 +8,7 @@ module pango.renderer;
 
 import bindbc.pango.config;
 import bindbc.pango.codegen;
+import bindbc.glib, bindbc.gobject;
 
 import pango.attributes;
 import pango.colour;
@@ -32,21 +33,22 @@ static if(pangoVersion >= Version(1,8,0)){
 	}()));
 	
 	struct PangoRenderer{
-		private{
-			GObject parentInstance;
-			
-			PangoUnderline underline;
-			gboolean strikethrough;
-			int activeCount;
-		}
+		GObject parentInstance;
+		alias parent_instance = parentInstance;
+		
+		PangoUnderline underline;
+		gboolean strikethrough;
+		int activeCount;
+		alias active_count = activeCount;
 		
 		PangoMatrix* matrix;
 		
-		private PangoRendererPrivate* priv;
+		PangoRendererPrivate* priv;
 	}
 	
 	struct PangoRendererClass{
-		private GObjectClass parentClass;
+		GObjectClass parentClass;
+		alias parent_class = parentClass;
 		
 		extern(C) nothrow{
 			alias GenericFn = void function(PangoRenderer* renderer);
@@ -84,7 +86,6 @@ static if(pangoVersion >= Version(1,8,0)){
 		alias prepare_run = prepareRun;
 		alias draw_glyph_item = drawGlyphItem;
 		
-		private:
 		ReservedFn _pango_reserved2;
 		ReservedFn _pango_reserved3;
 		ReservedFn _pango_reserved4;

@@ -8,6 +8,7 @@ module pango.types;
 
 import bindbc.pango.config;
 import bindbc.pango.codegen;
+import bindbc.glib, bindbc.gobject;
 
 struct PangoFont;
 

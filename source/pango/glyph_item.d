@@ -8,6 +8,7 @@ module pango.glyph_item;
 
 import bindbc.pango.config;
 import bindbc.pango.codegen;
+import bindbc.glib, bindbc.gobject;
 
 import pango.attributes;
 import pango.break_;

@@ -8,6 +8,7 @@ module pango.coverage;
 
 import bindbc.pango.config;
 import bindbc.pango.codegen;
+import bindbc.glib, bindbc.gobject;
 
 struct PangoCoverage;
 

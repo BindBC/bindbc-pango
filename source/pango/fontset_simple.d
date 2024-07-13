@@ -8,6 +8,7 @@ module pango.fontset_simple;
 
 import bindbc.pango.config;
 import bindbc.pango.codegen;
+import bindbc.glib, bindbc.gobject;
 
 import pango.coverage;
 import pango.fontset;
