@@ -34,7 +34,7 @@ enum dStyleEnums = (){
 }();
 
 enum pangoVersion = (){
-	version(Pango_1_54)         return Version(1,54,0);
+	version(Pango_1_54_0)       return Version(1,54,0);
 	else version(Pango_1_52_0)  return Version(1,52,0);
 	else version(Pango_1_50_0)  return Version(1,50,0);
 	else version(Pango_1_48_0)  return Version(1,48,0);

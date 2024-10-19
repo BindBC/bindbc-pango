@@ -10,6 +10,7 @@ import bindbc.pango.config;
 import bindbc.pango.codegen;
 import bindbc.glib, bindbc.gobject;
 
+import pango.attributes;
 import pango.item;
 import pango.types;
 

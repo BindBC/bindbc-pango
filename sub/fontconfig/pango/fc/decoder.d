@@ -15,31 +15,29 @@ import pango.fc.font;
 
 import bindbc.fontconfig;
 
-static if(pangoVersion >= Version(1,6,0)){
-	struct PangoFcDecoder{
-		GObject parentInstance;
-		alias parent_instance = parentInstance;
-	}
+struct PangoFcDecoder{
+	GObject parentInstance;
+	alias parent_instance = parentInstance;
+}
+
+struct PangoFcDecoderClass{
+	GObjectClass parentClass;
+	alias parent_class = parentClass;
 	
-	struct PangoFcDecoderClass{
-		GObjectClass parentClass;
-		alias parent_class = parentClass;
-		
-		extern(C) nothrow{
-			alias GetCharsetFn = FcCharSet* function(PangoFcDecoder* decoder, PangoFcFont* fcFont);
-			alias GetGlyphFn = PangoGlyph function(PangoFcDecoder* decoder, PangoFcFont* fcFont, uint wc);
-			alias ReservedFn = void function();
-		}
-		GetCharsetFn getCharset;
-		GetGlyphFn getGlyph;
-		alias get_charset = getCharset;
-		alias get_glyph = getGlyph;
-		
-		ReservedFn _pango_reserved1;
-		ReservedFn _pango_reserved2;
-		ReservedFn _pango_reserved3;
-		ReservedFn _pango_reserved4;
+	extern(C) nothrow{
+		alias GetCharsetFn = FcCharSet* function(PangoFcDecoder* decoder, PangoFcFont* fcFont);
+		alias GetGlyphFn = PangoGlyph function(PangoFcDecoder* decoder, PangoFcFont* fcFont, uint wc);
+		alias ReservedFn = void function();
 	}
+	GetCharsetFn getCharset;
+	GetGlyphFn getGlyph;
+	alias get_charset = getCharset;
+	alias get_glyph = getGlyph;
+	
+	ReservedFn _pango_reserved1;
+	ReservedFn _pango_reserved2;
+	ReservedFn _pango_reserved3;
+	ReservedFn _pango_reserved4;
 }
 
 mixin(joinFnBinds((){

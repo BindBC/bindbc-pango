@@ -41,7 +41,7 @@ enum PANGO_FC_FONT_VARIATIONS = "fontvariations";
 
 mixin(joinFnBinds((){
 	FnBind[] ret = [
-			{q{GType}, q{pango_fc_font_map_get_type}, q{}, attr: q{pure}, aliases: [q{PANGO_FC_TYPE_FONT_MAP}]},
+		{q{GType}, q{pango_fc_font_map_get_type}, q{}, attr: q{pure}, aliases: [q{PANGO_FC_TYPE_FONT_MAP}]},
 	];
 	if(pangoVersion >= Version(1,4,0)){
 		FnBind[] add = [

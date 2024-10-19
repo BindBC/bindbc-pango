@@ -130,7 +130,7 @@ static if(pangoVersion >= Version(1,50,0)){
 			{{q{none},        q{PANGO_TEXT_TRANSFORM_NONE}}},
 			{{q{lowercase},   q{PANGO_TEXT_TRANSFORM_LOWERCASE}}},
 			{{q{uppercase},   q{PANGO_TEXT_TRANSFORM_UPPERCASE}}},
-			{{q{capitalise},  q{PANGO_TEXT_TRANSFORM_CAPITALISE}}, aliases: {q{capitalize}, q{PANGO_TEXT_TRANSFORM_CAPITALIZE}}},
+			{{q{capitalise},  q{PANGO_TEXT_TRANSFORM_CAPITALISE}}, aliases: [{q{capitalize}, q{PANGO_TEXT_TRANSFORM_CAPITALIZE}}]},
 		];
 		return ret;
 	}()));

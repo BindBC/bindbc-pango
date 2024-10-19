@@ -3,12 +3,10 @@ import core.stdc.stdlib;
 import core.stdc.stdio;
 import core.stdc.string;
 
+import bindbc.glib, bindbc.gobject;
 import bindbc.freetype;
-import bindbc.fontconfig;
-import bindbc.fontconfig.freetype;
-import bindbc.pango;
-import bindbc.pango.fontconfig;
-import bindbc.pango.freetype;
+import bindbc.fontconfig, bindbc.fontconfig.freetype;
+import bindbc.pango, bindbc.pango.fontconfig, bindbc.pango.freetype;
 
 import gamut;
 
@@ -25,6 +23,8 @@ extern(C) int main(){
 			return 1;
 		}
 		static foreach(loadFn; [
+			q{loadGLib},
+			q{loadGObject},
 			q{loadFontconfig},
 			q{loadFontconfigFreeType},
 			q{loadPango},

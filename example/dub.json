@@ -4,9 +4,11 @@
 		"bindbc-pango": {"path": "../"},
 		"bindbc-pango:fontconfig": {"path": "../"},
 		"bindbc-pango:freetype": {"path": "../"},
-		"bindbc-freetype": "~>1.3.0",
-		"bindbc-fontconfig": "~>1.0.0",
-		"bindbc-fontconfig:freetype": "~>1.0.0",
+		"bindbc-freetype": "~>1.3",
+		"bindbc-fontconfig": "~>1.0",
+		"bindbc-fontconfig:freetype": "~>1.0",
+		"bindbc-glib": "~>1.0",
+		"bindbc-glib:gobject": "~>1.0",
 		"gamut": "~>2.6.0",
 	},
 	"subConfigurations": {
@@ -21,12 +23,13 @@
 		{
 			"name": "dynamic",
 			"dependencies": {
-				"bindbc-loader": "~>1.1.0",
+				"bindbc-loader": "~>1.1",
 			},
 			"subConfigurations": {
 				"bindbc-pango": "dynamic",
 				"bindbc-freetype": "dynamic",
 				"bindbc-fontconfig": "dynamic",
+				"bindbc-glib": "dynamic",
 			},
 		},
 		{
@@ -35,8 +38,9 @@
 				"bindbc-pango": "static",
 				"bindbc-freetype": "static",
 				"bindbc-fontconfig": "static",
+				"bindbc-glib": "static",
 			},
-			"libs": ["gobject-2.0", "fontconfig", "freetype", "pango-1.0", "pangoft2-1.0"],
+			"libs": ["glib-2.0", "gobject-2.0", "fontconfig", "freetype", "pango-1.0", "pangoft2-1.0"],
 		},
 	],
 }

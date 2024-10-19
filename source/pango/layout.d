@@ -13,6 +13,7 @@ import bindbc.glib, bindbc.gobject;
 import pango.attributes;
 import pango.break_;
 import pango.context;
+import pango.direction;
 import pango.font;
 import pango.glyph_item;
 import pango.tabs;
