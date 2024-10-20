@@ -1,6 +1,6 @@
 
 # BindBC-Pango
-This project provides a set of both static and dynamic bindings to the [Pango](https://www.pango.org/). They are compatible with `@nogc` and `nothrow`, and can be compiled with BetterC compatibility.
+This project provides a set of both static and dynamic bindings to [Pango](https://www.pango.org/). They are compatible with `@nogc` and `nothrow`, and can be compiled with BetterC compatibility.
 
 | Table of Contents |
 |-------------------|
