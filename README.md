@@ -15,7 +15,7 @@ This project provides a set of both static and dynamic bindings to [Pango](https
 
 BindBC-Pango&mdash;as well as every other binding in the [BindBC project](https://github.com/BindBC)&mdash;is licensed under the [Boost Software License](https://www.boost.org/LICENSE_1_0.txt).
 
-Bear in mind that you still need to abide by [Pango' license](https://gitlab.gnome.org/GNOME/pango/-/blob/main/COPYING) if you use it through these bindings.
+Bear in mind that you still need to abide by [Pango's license](https://gitlab.gnome.org/GNOME/pango/-/blob/main/COPYING) if you use it through these bindings.
 
 ## Pango documentation
 This readme describes how to use BindBC-Pango, *not* Pango itself. BindBC-Pango does have minor API changes from Pango, which are listed in [Binding-specific changes](#binding-specific-changes). Otherwise BindBC-Pango is a direct D binding to the Pango C API, so any existing Pango documentation and tutorials can be adapted with only minor modifications.
@@ -172,8 +172,8 @@ bool loadLib(){
 		if(ret == LoadMsg.noLibrary){
 			msg = "This application requires the Pango library.";
 		}else{
-			const(char)* version = pango_version_string();
-			msg = "Your Pango version is too low: "~version;
+			const(char)* version_ = pango_version_string();
+			msg = "Your Pango version is too low: "~version_;
 		}
 		//A hypothetical message box function
 		showMessageBox(msg);
@@ -252,3 +252,4 @@ When linking with the static library, there is no runtime dependency on Pango.
 | 1.6.0   | `Pango_1_6_0`    |
 | 1.4.0   | `Pango_1_4_0`    |
 | 1.2.0   | `Pango_1_2_0`    |
+| 1.0.0   | (none; default)  |
