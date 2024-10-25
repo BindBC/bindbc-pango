@@ -12,7 +12,6 @@ This project provides a set of both static and dynamic bindings to [Pango](https
 |[Library versions](#library-versions)|
 
 ## License
-
 BindBC-Pango&mdash;as well as every other binding in the [BindBC project](https://github.com/BindBC)&mdash;is licensed under the [Boost Software License](https://www.boost.org/LICENSE_1_0.txt).
 
 Bear in mind that you still need to abide by [Pango's license](https://gitlab.gnome.org/GNOME/pango/-/blob/main/COPYING) if you use it through these bindings.
@@ -184,13 +183,12 @@ bool loadLib(){
 ```
 
 ## Binding-specific changes
-
 Enums are available both in their original C-style `UPPER_SNAKE_CASE` form, and as the D-style `PascalCase.camelCase`. Both variants are enabled by default, but can be selectively chosen using the version identifiers `Pango_C_Enums_Only` or `Pango_D_Enums_Only` respectively.
-
-`camelCase`d variants are available for struct fields using `snake_case`, defines using `UPPER_SNAKE_CASE`, and other similar incongruities with D's casing, with the notable exception of any external functions.
 
 > [!NOTE]\
 > The version identifiers `BindBC_C_Enums_Only` and `BindBC_D_Enums_Only` can be used to configure all of the applicable _official_ BindBC packages used in your program. Package-specific version identifiers override this.
+
+`camelCase`d variants are available for struct fields using `snake_case`, defines using `UPPER_SNAKE_CASE`, and other similar incongruities with D's casing, with the notable exception of any external functions.
 
 ## Configurations
 BindBC-Pango has the following configurations:
